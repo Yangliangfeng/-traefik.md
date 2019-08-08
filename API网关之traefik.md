@@ -15,8 +15,8 @@ docker pull traefik:1.7-alpine
 
 2. docker启动
 docker run -d -p 8080:8080 -p 80:80  --name tk  \
--v /home/shenyi/tk/traefik.toml:/etc/traefik/traefik.toml  \
+-v /home/yang/tk:/etc/traefik  \
 traefik:1.7-alpine
 
-# 注意：/etc/traefik/traeefik.toml 官方指定的配置文件的路径
+# 注意：/etc/traefik 官方指定的配置文件的路径
 ```
