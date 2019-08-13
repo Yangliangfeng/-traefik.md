@@ -54,3 +54,19 @@ traefik:1.7-alpine
            [frontends.pro1v2.routes.apirule2]
              rule="Method:GET,POST"
 ```
+* 匹配器详解
+```
+1. Path
+   完全匹配器。当匹配到/v2/users 进行转发。 注意：它会把/v2/users这个路径转发给后端
+   
+2. PathStrip
+   同Path .区别在于它会把 /v2/users  去掉（strip掉）。把/转发给后端
+   
+3. PathPrefix 
+   区别在于  它会把/v2/users 转发给后端的同时，把后面的路径也转发过去
+   譬如PathPrefix:/v2/users
+   如果我请求地址是  /v2/users/abc    则会转发/v2/users/abc
+   
+4. PathPrefixStrip
+   如果我请求地址是  /v2/users/abc    则会转发/abc  。因为它把 /v2/users 这个前缀去掉了
+```
