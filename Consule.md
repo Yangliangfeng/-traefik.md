@@ -14,4 +14,6 @@
   3） -ui 启动一个内置管理web界面
   4） -client 指定客户端可以访问的IP。设置为0.0.0.0 则任意访问，否则默认本机可以访问。 
 
+3. Go安装consul扩展
+    go get github.com/hashicorp/consul
 ```
