@@ -16,4 +16,7 @@
 
 3. Go安装consul扩展
     go get github.com/hashicorp/consul
+    
+4. consul在github上的地址
+    https://github.com/hashicorp/consul/tree/master/api
 ```
