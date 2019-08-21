@@ -37,6 +37,7 @@ traefik:1.7-alpine
           [backends.pro1.servers.userservice2]
             url="http://192.168.1.10:8002"
             weight=2
+        [backends.pro2]
           [backends.pro2.servers.userservices1]
             url="http://192.168.1.10:8003"
 
@@ -83,4 +84,21 @@ entrypoint是traefik的网络入口，作用如下：
 4. frontend把请求传送到backend中定义的server中
 
 5. server会把请求转发到真正的服务上去
+
+6. 代码
+  [entryPoints]
+   [entryPoints.http]//http请求
+       address = ":80"
+       [entryPoints.http.redirect]//重定向
+            regex="/member" //老的url
+            replacement="/v2/users" //替代老的url地址
+            permanent=true  //永久重定向
+   [entryPoints.https] //支持https协议
+        address = ":443"
+        [entryPoints.https.tls]//没有ssl证书时，自动生成临时ssl证书
+        或
+          [[entryPoints.https.tls.certificates]]//加入申请好的证书
+              certFile = "/xxx/xxx.cert"
+              keyFile = "/xxxx.key"
+
 ```
