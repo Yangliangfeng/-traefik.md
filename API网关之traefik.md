@@ -70,3 +70,17 @@ traefik:1.7-alpine
 4. PathPrefixStrip
    如果我请求地址是  /v2/users/abc    则会转发/abc  。因为它把 /v2/users 这个前缀去掉了
 ```
+* Entrypoint
+```
+entrypoint是traefik的网络入口，作用如下：
+
+1. 监听端口
+
+2. 处理SSL、redirect、控制白名单、basic auth 认证、设置代理
+
+3. 在经过entrypoint后，流量会被转发到一个匹配的frontend上
+
+4. frontend把请求传送到backend中定义的server中
+
+5. server会把请求转发到真正的服务上去
+```
