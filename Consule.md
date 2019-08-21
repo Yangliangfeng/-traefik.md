@@ -19,4 +19,7 @@
     
 4. consul在github上的地址
     https://github.com/hashicorp/consul/tree/master/api
+    
+5. consul文档
+    https://godoc.org/github.com/hashicorp/consul/api
 ```
