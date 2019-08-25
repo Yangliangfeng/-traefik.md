@@ -23,3 +23,8 @@
 5. consul文档
     https://godoc.org/github.com/hashicorp/consul/api
 ```
+* uuid工具的使用
+```
+1. 安装：
+  go get github.com/google/uuid
+```
