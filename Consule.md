@@ -28,3 +28,12 @@
 1. 安装：
   go get github.com/google/uuid
 ```
+* 服务熔断
+```
+1. 第三方库
+   https://github.com/afex/hystrix-go
+   本质：隔离远程服务请求，防止级联故障
+   
+2. 安装
+   go get github.com/afex/hystrix-go
+```
