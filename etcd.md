@@ -58,6 +58,7 @@
    1）查
    etcdctl get /user/101/name  
    etcdctl get /user/101/age
+   etcdctl get /user/101 --prefix  //查询前缀为/user/101的所有键的值
   
    2）增
    etcdctl put /user/101/name shenyi
