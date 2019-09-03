@@ -68,3 +68,8 @@
    etcdctl del /user/101 --prefix （删除这个前缀的键）
    etcdctl del /user/101/age
 ```
+* docker模拟集群的启动
+```
+1. 启动命令
+  docker run -d  --name etcd1 --network etcdnet --ip 172.25.0.101 -p 23791:2379 -e ETCDCTL_API=3   -v /home/yang/etcd:/etcd etcd:1.1 etcd --config-file  /etcd/conf/etcd.yml
+```
