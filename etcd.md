@@ -43,3 +43,27 @@
   3、etcd --version  查看版本
   4、 etcd --config-file  /etcd/conf/etcd.yml
 ```
+* etcd的基本使用一
+```
+1. 介绍
+  Etcdctl是客户端工具，由于历史原因，存在v2和v3版本。
+
+2. 设置环境变量（版本3）
+  export ETCDCTL_API=3
+
+3. 查看版本
+  etcdctl version
+
+4. 增删改查
+   1）查
+   etcdctl get /user/101/name  
+   etcdctl get /user/101/age
+  
+   2）增
+   etcdctl put /user/101/name shenyi
+   etcdctl put /user/101/age  19
+   
+   3）删
+   etcdctl del /user/101 --prefix （删除这个前缀的键）
+   etcdctl del /user/101/age
+```
