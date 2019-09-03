@@ -24,10 +24,10 @@
   mkdir -p etcd/conf etcd/data
 
 3. 启动容器
-  docker run -d --name etcd \
+  docker run -it --name etcd \
   -p 2379:2379 \
   -v /home/yang/etcd:/etcd \
-  golangd:1.12-alpine sh
+  golangd:1.12-alpine sh （注意 -d 不能启动服务）
   
 4. 拷贝etcd的服务端和客户端到容器（进入到etcd解压后的文件夹）
   docker cp etcd etcd:/usr/bin && docker cp etcdctl etcd:/usr/bin 
