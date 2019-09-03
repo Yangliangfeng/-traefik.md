@@ -71,5 +71,14 @@
 * docker模拟集群的启动
 ```
 1. 启动命令
-  docker run -d  --name etcd1 --network etcdnet --ip 172.25.0.101 -p 23791:2379 -e ETCDCTL_API=3   -v /home/yang/etcd:/etcd etcd:1.1 etcd --config-file  /etcd/conf/etcd.yml
+  docker run -d  --name etcd1 --network etcdnet --ip 172.25.0.101 -p 23791:2379 -e ETCDCTL_API=3   
+  -v /home/yang/etcd:/etcd etcd:1.1 etcd --config-file  /etcd/conf/etcd.yml
+```
+* Go的调用etcd的API
+```
+1. 安装
+  go get go.etcd.io/etcd/clientv3
+
+2. 文档
+  https://godoc.org/go.etcd.io/etcd/clientv3
 ```
