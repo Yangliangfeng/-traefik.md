@@ -67,6 +67,7 @@
    3）删
    etcdctl del /user/101 --prefix （删除这个前缀的键）
    etcdctl del /user/101/age
+   
 ```
 * docker模拟集群的启动
 ```
@@ -81,4 +82,27 @@
 
 2. 文档
   https://godoc.org/go.etcd.io/etcd/clientv3
+```
+* 租约模块命令
+```
+1. 设置租约
+    etcdctl lease grant 20  ------设置过期20秒的grant租约
+    
+2. 查看租约列表
+   etcdctl lease list
+   
+3. 查看租约剩余时间
+   etcdctl lease timetolive +ID  ------ID是租约的ID
+   
+4. 删除租约
+   etcdctl lease revoke + ID  -------ID租约的ID
+   
+5. 保持租约始终存活
+   etcdctl lease keep-alive + ID
+   
+6. 可以查看租约下的所有key
+   etcdctl lease timetolive + ID --keys
+
+7. 把key和租约关联
+   etcdctl put /user yang --lease=ID
 ```
