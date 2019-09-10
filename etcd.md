@@ -106,3 +106,8 @@
 7. 把key和租约关联
    etcdctl put /user yang --lease=ID
 ```
+* Confd 配置管理工具
+```
+1. 地址
+  https://github.com/kelseyhightower/confd
+```
