@@ -159,6 +159,12 @@
 4. 定时任务
   docker run -d --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1
   -interval 5 -backend etcdv3 -node http://192.168.2.252:23791
+  
+5. 监听key值变化
+  docker run -d --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1
+  -v /home/yang/mygo:/mygo 
+  -watch  -backend etcdv3 -node http://192.168.2.252:23791
+  ###watch监听key值变化
 ```
 * 交叉编译（在window上编译，在Linux运行）
 ```
