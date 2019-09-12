@@ -160,7 +160,7 @@
   docker run -d --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1
   -interval 5 -backend etcdv3 -node http://192.168.2.252:23791
 ```
-* 交叉编译
+* 交叉编译（在window上编译，在Linux运行）
 ```
 1. 在goland编译器新建build.bat文件:
   set GOARCH=amd64
