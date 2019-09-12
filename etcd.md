@@ -124,7 +124,33 @@
    go install github.com/kelseyhightower/confd && \
    rm -rf /tmp/v${CONFD_VERSION}.tar.gz
  ENTRYPOINT ["/go/bin/confd"]
- 
+
+3. 根据dockerfile构建镜像
+   docker build -t confd:1.1 .
+```
+* Confd 的启动流程
+```
+1. 前期准备----新建文件夹
+   mkdir -p /home/shenyi/confdfiles/{conf.d,templates,dest}
+   ## conf.d 放配置文件，templates 放模板文件
+   
+   在conf.d里面创建配置叫做myconfig.toml
+   内容如下：
+   [template]
+    src = "myconfig.conf.tmpl"
+    dest = "/etc/confd/dest/myconfig.conf"
+    keys = [
+        "/myconfig/mysql/user",
+        "/myconfig/mysql/pass",
+    ]
+    
+    templates里面创建一个文件叫做myconfig.conf.tmpl
+    内容如下：
+      [this is myconfig]
+      database_user= {{getv "/myconfig/mysql/user"}}
+      database_pass = {{getv "/myconfig/mysql/pass"}}
+
+
 3. 启动
   docker run -it --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1 
   -onetime -backend etcdv3 -node http://192.168.2.252:23791
