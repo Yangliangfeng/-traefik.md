@@ -124,4 +124,14 @@
    go install github.com/kelseyhightower/confd && \
    rm -rf /tmp/v${CONFD_VERSION}.tar.gz
  ENTRYPOINT ["/go/bin/confd"]
+ 
+3. 启动
+  docker run -it --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1 
+  -onetime -backend etcdv3 -node http://192.168.2.252:23791
+  ## onetime 只运行一次
+
+4. 定时任务
+  docker run -it --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1
+  -interval 5 -backend etcdv3 -node http://192.168.2.252:23791
 ```
+
