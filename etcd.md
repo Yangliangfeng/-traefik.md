@@ -157,7 +157,7 @@
   ## onetime 只运行一次
 
 4. 定时任务
-  docker run -it --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1
+  docker run -d --rm  --name confd -v /home/yang/confdfiles:/etc/confd confd:1.1
   -interval 5 -backend etcdv3 -node http://192.168.2.252:23791
 ```
 
